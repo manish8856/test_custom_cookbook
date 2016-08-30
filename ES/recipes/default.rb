@@ -1,12 +1,12 @@
 execute "install java" do
-  command "add-apt-repository ppa:webupd8team/java -y"
+  command "sudo apt-add-repository ppa:webupd8team/java"
 end
 
 execute " update apt" do
-  command "apt update -y"
+  command "sudo apt-get update -y"
 end
 
 execute "install java" do
-  command "apt-get install oracle-java8-installer -y"
+  command "sudo apt-get install oracle-java8-installer"
 end
 
