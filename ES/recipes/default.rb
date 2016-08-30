@@ -11,6 +11,13 @@ execute "install java" do
   command "apt-get -y install oracle-java8-installer"
 end
 
+template '/etc/profile.d/2472-elasticsearch-memory.sh' do
+  source 'elasticsearch-memory.sh.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
 execute "install es" do
   command <<-EOF
     wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
