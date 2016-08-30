@@ -10,7 +10,6 @@ end
 execute "extract_some_tar" do
   cwd "/tmp"
   command "tar -xzvf jdk-8u102-linux-x64.tar.gz"
-  not_if { File.exists?("/tmp") }
 end
 
 
