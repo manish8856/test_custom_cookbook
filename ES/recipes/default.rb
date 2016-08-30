@@ -1,12 +1,10 @@
 execute "install java" do
-  command "sudo apt-add-repository ppa:webupd8team/java"
+  command "echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+apt-get update
+apt-get install --yes oracle-java7-installer"
 end
 
-execute " update apt" do
-  command "sudo apt-get update -y"
-end
 
-execute "install java" do
-  command "sudo apt-get install oracle-java8-installer"
-end
 
