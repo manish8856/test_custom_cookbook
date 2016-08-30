@@ -12,7 +12,7 @@ execute "install java" do
 end
 
 template '/etc/profile.d/2472-elasticsearch-memory.sh' do
-  source 'elasticsearch-memory.sh.erb'
+  source 'templates/default/elasticsearch-memory.sh.erb'
   owner 'root'
   group 'root'
   mode '0755'
@@ -30,7 +30,7 @@ end
 
 
 execute "es.config.yml" do
-  command "echo 'cluster.name: manish' >>  /etc/elasticsearch/elasticsearch.yml
+  command "echo 'cluster.name: manish' >>  /etc/elasticsearch/elasticsearch.yml"
 end 
 execute "set hostname " do 
   command "node.name: #{HOSTNAME}"
@@ -45,7 +45,6 @@ execute "update-rc.d" do
 
 
 execute "do memory" do 
-  command "echo '#{}" > /etc/elasticsearch/elasticsearch.ym"
+  command "echo '#{}' > /etc/elasticsearch/elasticsearch.yml"
 end
-execute "memory_heap_Settings" do
-  commamd "
+
