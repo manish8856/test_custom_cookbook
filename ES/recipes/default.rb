@@ -24,7 +24,7 @@ execute "es.config.yml" do
 end 
 
 execute "set hostname " do 
-  command "node.name: #{::HOSTNAME}"
+  command "node.name: #{HOSTNAME}"
 end
 
 service "elasticsearch" do
