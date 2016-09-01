@@ -12,7 +12,7 @@ execute "extract_some_tar" do
   command "tar -xzvf jdk-8u102-linux-x64.tar.gz"
 end
 
-execute "install es" do
+execute "install ES" do
   command <<-EOF
     wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
     echo "deb http://packages.elastic.co/elasticsearch/2.x/debian stable main" | sudo tee -a /etc/apt/sources.list.d/elasticsearch-2.x.list|sudo apt-get update|sudo apt-get -y install elasticsearch
@@ -24,11 +24,11 @@ execute "es.config.yml" do
 end 
 
 execute "set hostname " do 
-  command "node.name: #{:HOSTNAME}"
+  command "node.name: #{::HOSTNAME}"
 end
 
 service "elasticsearch" do
-  action :enable , :restart
+  action [:enable , :restart]
 end
 
 
