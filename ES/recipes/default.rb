@@ -20,7 +20,7 @@ execute "install es" do
 end
 
 execute "es.config.yml" do
-  command "echo 'cluster.name: imran' >>  /etc/elasticsearch/elasticsearch.yml"
+  command "echo 'cluster.name: manish' >>  /etc/elasticsearch/elasticsearch.yml"
 end 
 
 execute "set hostname " do 
